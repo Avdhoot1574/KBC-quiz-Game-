@@ -4,7 +4,7 @@ College: Prof. Ramkrishna More College, Akurdi<br>
 Class: Bachelor of Computer Science (2nd Year)<br>
 Email: nakodavdhoot@gmail.com?<br>
 GitHub Profile: https://www.github.com/Avdhoot1574<br>
-Linkedin Profile: https://www.linkedin.com/Avdhoot_Nakod<br>
+Linkedin Profile: https://www.linkedin.com/in/avdhoot-nakod-b869ba268/<br>
 
 ## **Project Overview:**<br>
 
