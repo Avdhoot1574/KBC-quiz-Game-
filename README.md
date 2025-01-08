@@ -34,9 +34,9 @@ Linkedin Profile: https://www.linkedin.com/Avdhoot_Nakod<br>
 ---
 
 ## **File Structure:**
-├── quiz.c # Main program logic
-├── questions.txt # Text file containing quiz questions, options, answers, and prize money
-└── README.md # Project description and instructions
+├── quiz.c # Main program logic<br>
+├── questions.txt # Text file containing quiz questions, options, answers, and prize money<br>
+└── README.md # Project description and instructions<br>
 
 
 ---
