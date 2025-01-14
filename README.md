@@ -1,5 +1,5 @@
 # Kaun Banega Crorepati (KBC) Quiz Game**
-Project Creator(s): 1.Akanksha Jadhav 2.Avdhoot Nakod<br>
+Project Creator(s): 1.Akanksha Jadhav<br>2.Avdhoot Nakod<br>
 College: Prof. Ramkrishna More College, Akurdi<br>
 Class: Bachelor of Computer Science (2nd Year)<br>
 Email: nakodavdhoot@gmail.com?<br>
