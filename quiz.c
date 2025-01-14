@@ -1,19 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <conio.h>  // For _kbhit() and _getch()
-#include <windows.h> // For Sleep()
-#include <time.h>
+#include "quiz.h"
 
-// Define maximum lengths for question text and options
-#define MAX_QUES_LEN 300
-#define MAX_OPTION_LEN 100
-
-// Global variable to track if a timeout has occurred
+// Global variable definition
 volatile int timeout_happened = 0;
 
-// Define color codes for text formatting (currently empty)
+// Define color codes for text formatting (can be updated)
 const char* COLOR_END = "";
 const char* RED = "";
 const char* GREEN = "";
@@ -21,21 +11,6 @@ const char* YELLOW = "";
 const char* BLUE = "";
 const char* PINK = "";
 const char* AQUA = "";
-
-// Structure to represent a question
-typedef struct {
-  char text[MAX_QUES_LEN]; // Question text
-  char options[4][MAX_OPTION_LEN]; // Four options for the question
-  char correct_option; // Correct option for the question
-  int timeout; // Timeout for answering the question
-  int prize_money; // Prize money for the question
-} Question;
-
-// Function prototypes
-int read_questions(char* file_name, Question** questions);
-void print_formatted_question(Question question);
-void play_game(Question* questions, int no_of_questions);
-int use_lifeline(Question* question, int* lifeline);
 
 void timeout_handler() {
   timeout_happened = 1;
@@ -49,12 +24,11 @@ void play_game(Question* questions, int no_of_questions) {
 
   for (int i = 0; i < no_of_questions; i++) {
     print_formatted_question(questions[i]);
-    
-    // Wait for input for the specified timeout duration
+
     DWORD start_time = GetTickCount();
     char ch = '\0';
     while (!timeout_happened && GetTickCount() - start_time < questions[i].timeout * 1000) {
-      if (_kbhit()) { // Check if a key is pressed
+      if (_kbhit()) {
         ch = _getch();
         break;
       }
@@ -91,27 +65,21 @@ void play_game(Question* questions, int no_of_questions) {
   printf("\n\n%sGame Over! Your total winnings are: Rs %d\n", BLUE,  money_won);
 }
 
-// Function to use a lifeline during the game
 int use_lifeline(Question* question, int* lifeline) {
-  // Display available lifelines
   printf("\n\n%sAvailable Lifelines:%s", PINK, COLOR_END);
   if (lifeline[0]) printf("\n1. Fifty-Fifty (50/50)");
   if (lifeline[1]) printf("\n2. Skip the Question");
   printf("\nChoose a lifeline or 0 to return: ");
 
-  // Get the user's choice
   char ch = _getch();
   printf("%c", ch);
 
-  // Process the user's choice
   switch (ch)
   {
   case '1':
-    // If Fifty-Fifty lifeline is chosen and available
     if (lifeline[0]) {
-      lifeline[0] = 0; // Mark the lifeline as used
+      lifeline[0] = 0;
       int removed = 0;
-      // Remove two incorrect options
       while (removed < 2) {
         int num = rand() % 4;
         if ((num + 'A') != question->correct_option &&
@@ -120,18 +88,17 @@ int use_lifeline(Question* question, int* lifeline) {
           removed++;
         }
       }
-      return 1; // Indicate that the lifeline was used
+      return 1;
     }
     break;
   case '2':
-    // If Skip the Question lifeline is chosen and available
     if (lifeline[1]) {
-      lifeline[1] = 0; // Mark the lifeline as used
-      return 2; // Indicate that the lifeline was used
+      lifeline[1] = 0;
+      return 2;
     }
     break;
   }
-  return 0; // Indicate that no lifeline was used
+  return 0;
 }
 
 void print_formatted_question(Question question) {
@@ -146,7 +113,7 @@ void print_formatted_question(Question question) {
 }
 
 int read_questions(char* file_name, Question** questions) {
-  FILE *file = fopen("questions.txt", "r");  // Use the file name directly
+  FILE *file = fopen("questions.txt", "r");
   if (file == NULL) {
     printf("\nUnable to open the questions bank. Check the file path.\n");
     perror("Error details: ");
@@ -181,23 +148,12 @@ int read_questions(char* file_name, Question** questions) {
   return no_of_questions;
 }
 
-// Main function
 int main() {
-  // Seed the random number generator
   srand(time(NULL));
-  
-  // Print the game title
   printf("\t\tChalo Kehlte hain KAUN BANEGA CROREPATI !!!");
-  
-  // Declare a pointer to hold the questions
+
   Question* questions;
-  
-  // Read questions from the file and get the number of questions
   int no_of_questions = read_questions("questions.txt", &questions);
-  
-  // Start the game with the read questions
   play_game(questions, no_of_questions);
-  
-  // Exit the program
   exit(0);
 }
