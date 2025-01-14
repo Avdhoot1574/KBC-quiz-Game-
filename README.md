@@ -35,7 +35,8 @@ console-based quiz game inspired by the popular Indian TV game show *Kaun Banega
 
 ## **File Structure:**
 ├── quiz.c # Main program logic<br>
-├── questions.txt # Text file containing quiz questions, options, answers, and prize money<br>
+├──quiz.h # Header File
+├── questions.txt # Text file containing quiz questions, options, answers<br>
 └── README.md # Project description and instructions<br>
 
 
