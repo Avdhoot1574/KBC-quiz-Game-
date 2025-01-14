@@ -1,14 +1,14 @@
-# Kaun Banega Crorepati (KBC) Quiz Game**
+# Kaun Banega Crorepati (KBC) Quiz Game
 Project Creator(s): 1.Akanksha Jadhav<br>2.Avdhoot Nakod<br>
 College: Prof. Ramkrishna More College, Akurdi<br>
 Class: Bachelor of Computer Science (2nd Year)<br>
-Email: nakodavdhoot@gmail.com?<br>
+Email: nakodavdhoot@gmail.com<br>
 GitHub Profile: https://www.github.com/Avdhoot1574<br>
 Linkedin Profile: https://www.linkedin.com/in/avdhoot-nakod-b869ba268/<br>
 
 ## **Project Overview:**<br>
 
-*Chalo Kehlte Hain* is a console-based quiz game inspired by the popular Indian TV game show *Kaun Banega Crorepati (KBC)*. In this game, players answer multiple-choice questions to win prize money. The game features lifelines, a timer for each question, and an exciting game-over scenario if the player answers incorrectly or runs out of time.<br>
+console-based quiz game inspired by the popular Indian TV game show *Kaun Banega Crorepati (KBC)*. In this game, players answer multiple-choice questions to win prize money. The game features lifelines, a timer for each question, and an exciting game-over scenario if the player answers incorrectly or runs out of time.<br>
 
 ### **Key Features:**
 - **Multiple Choice Questions**: Players are presented with multiple-choice questions and need to select the correct option.
